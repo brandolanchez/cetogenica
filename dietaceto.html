@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infografía: Viabilidad de la Dieta Cetogénica en Venezuela (Junio 2025)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 320px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#F0FCFA]">
+
+    <!-- Palette: Energetic & Playful - #00A6A6, #77C2A1, #F0FCFA (new background), #F29E4C, #F26419 -->
+    <!-- No SVG or Mermaid JS was used in this document. All charts are rendered using Chart.js on a Canvas element. -->
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#F26419] mb-2">Dieta Cetogénica en Venezuela</h1>
+            <p class="text-xl md:text-2xl font-bold text-[#F29E4C]">Análisis de Costos para Junio de 2025</p>
+        </header>
+
+        <main>
+            
+
+            <section id="comparativa" class="mb-16 bg-white p-8 rounded-lg shadow-xl">
+                 <h2 class="text-3xl font-bold text-center text-[#00A6A6] mb-8">Costo de Vida vs. Dieta Especializada</h2>
+                 <p class="text-center text-gray-600 max-w-3xl mx-auto mb-8">
+                    El costo de la alimentación básica es un indicador clave en el contexto económico actual. Aquí se presenta una comparación con el presupuesto estimado para una dieta especializada como la cetogénica.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-gray-100 p-6 rounded-lg text-center flex flex-col justify-center items-center">
+                         <p class="text-2xl font-bold text-gray-700">Canasta Básica Alimentaria</p>
+                         <p class="text-6xl font-black text-[#F29E4C] my-4">$577.95</p>
+                         <p class="font-bold text-gray-500">Para una familia de 3 personas (Junio 2025)</p>
+                    </div>
+                     <div class="bg-gray-100 p-6 rounded-lg text-center flex flex-col justify-center items-center">
+                         <p class="text-2xl font-bold text-gray-700">Presupuesto Dieta Cetogénica</p>
+                         <p class="text-6xl font-black text-[#00A6A6] my-4">$395.41</p>
+                         <p class="font-bold text-gray-500">Para una familia de 4 personas (Junio 2025)</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="desglose" class="mb-16">
+                <h2 class="text-3xl font-bold text-center text-[#00A6A6] mb-8">Desglose del Presupuesto Cetogénico Mensual</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="bg-white p-6 rounded-lg shadow-xl">
+                        <h3 class="text-xl font-bold text-center text-gray-700 mb-4">Distribución del Gasto por Categoría (%)</h3>
+                        <p class="text-center text-gray-600 text-sm mb-4">Las carnes representan la mayor parte del presupuesto, más del 60%, lo que evidencia el alto costo de las proteínas animales, pilar de esta dieta.</p>
+                        <div class="chart-container">
+                            <canvas id="distribucionGastoChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-xl">
+                        <h3 class="text-xl font-bold text-center text-gray-700 mb-4">Costo Absoluto por Categoría (USD)</h3>
+                        <p class="text-center text-gray-600 text-sm mb-4">Este gráfico compara el costo total en dólares de cada categoría, destacando el impacto de las carnes frente a los vegetales, que son comparativamente más económicos.</p>
+                        <div class="chart-container">
+                            <canvas id="costoAbsolutoChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tabla-alimentos" class="mb-16">
+                <h2 class="text-3xl font-bold text-center text-[#00A6A6] mb-8">Cesta de Compras Cetogénica Detallada</h2>
+                <div class="bg-white p-4 md:p-6 rounded-lg shadow-xl overflow-x-auto">
+                    <p class="text-center text-gray-600 mb-6">Esta tabla presenta el presupuesto detallado para una familia de cuatro personas en Maracaibo, basado en precios recopilados en junio de 2025.</p>
+                    <table class="w-full text-sm text-left text-gray-600">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-100">
+                            <tr>
+                                <th scope="col" class="px-4 py-3">Categoría</th>
+                                <th scope="col" class="px-4 py-3">Alimento</th>
+                                <th scope="col" class="px-4 py-3">Precio Unitario (USD)</th>
+                                <th scope="col" class="px-4 py-3">Cantidad Estimada</th>
+                                <th scope="col" class="px-4 py-3 text-right">Costo Total Mensual (USD)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="bg-white border-b font-bold text-[#F26419]"><td colspan="4" class="px-4 py-2">Carnes</td><td class="px-4 py-2 text-right">$252.11</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Carne para Esmechar (Res)</td><td class="px-4 py-2">$11.75/kg</td><td class="px-4 py-2">10 kg</td><td class="px-4 py-2 text-right">$117.50</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Cerdo (Pernil)</td><td class="px-4 py-2">$7.00/kg</td><td class="px-4 py-2">8 kg</td><td class="px-4 py-2 text-right">$56.00</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Pollo (entero)</td><td class="px-4 py-2">$3.88/kg</td><td class="px-4 py-2">10 kg</td><td class="px-4 py-2 text-right">$38.80</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Hígado de Res</td><td class="px-4 py-2">$7.65/kg</td><td class="px-4 py-2">2 kg</td><td class="px-4 py-2 text-right">$15.30</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Corazón de Res</td><td class="px-4 py-2">$4.83/kg</td><td class="px-4 py-2">1 kg</td><td class="px-4 py-2 text-right">$4.83</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Huesos de Res</td><td class="px-4 py-2">$4.92/kg</td><td class="px-4 py-2">4 kg</td><td class="px-4 py-2 text-right">$19.68</td></tr>
+                            
+                            <tr class="bg-white border-b font-bold text-[#F29E4C]"><td colspan="4" class="px-4 py-2">Lácteos y Grasas</td><td class="px-4 py-2 text-right">$58.40</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Nata (Crema de Leche)</td><td class="px-4 py-2">$4.72/kg</td><td class="px-4 py-2">2 kg</td><td class="px-4 py-2 text-right">$9.44</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Mantequilla</td><td class="px-4 py-2">$14.80/kg</td><td class="px-4 py-2">1 kg</td><td class="px-4 py-2 text-right">$14.80</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Leche Completa</td><td class="px-4 py-2">$1.96/L</td><td class="px-4 py-2">4 L</td><td class="px-4 py-2 text-right">$7.84</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Yogur Griego</td><td class="px-4 py-2">$14.62/kg</td><td class="px-4 py-2">1.8 kg</td><td class="px-4 py-2 text-right">$26.32</td></tr>
+
+                            <tr class="bg-white border-b font-bold text-[#77C2A1]"><td colspan="4" class="px-4 py-2">Vegetales y Frutas</td><td class="px-4 py-2 text-right">$30.00</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Calabacín</td><td class="px-4 py-2">$1.56/kg</td><td class="px-4 py-2">4 kg</td><td class="px-4 py-2 text-right">$6.24</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Plátano Verde</td><td class="px-4 py-2">$0.75/kg</td><td class="px-4 py-2">2 kg</td><td class="px-4 py-2 text-right">$1.50</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Aguacate</td><td class="px-4 py-2">$3.63/kg</td><td class="px-4 py-2">4 kg</td><td class="px-4 py-2 text-right">$14.52</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Tomate</td><td class="px-4 py-2">$2.65/kg</td><td class="px-4 py-2">2 kg</td><td class="px-4 py-2 text-right">$5.30</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Pimentón</td><td class="px-4 py-2">$2.44/kg</td><td class="px-4 py-2">1 kg</td><td class="px-4 py-2 text-right">$2.44</td></tr>
+
+                            <tr class="bg-white border-b font-bold text-[#00A6A6]"><td colspan="4" class="px-4 py-2">Otros</td><td class="px-4 py-2 text-right">$54.90</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Huevos</td><td class="px-4 py-2">$0.23/unidad</td><td class="px-4 py-2">120 unidades</td><td class="px-4 py-2 text-right">$27.60</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Frijoles Negros</td><td class="px-4 py-2">$2.76/kg</td><td class="px-4 py-2">1 kg</td><td class="px-4 py-2 text-right">$2.76</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Vinagre de Manzana</td><td class="px-4 py-2">$1.96/botella</td><td class="px-4 py-2">1 botella</td><td class="px-4 py-2 text-right">$1.96</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Café</td><td class="px-4 py-2">$6.29/500g</td><td class="px-4 py-2">1 kg (2x500g)</td><td class="px-4 py-2 text-right">$12.58</td></tr>
+                            <tr class="border-b"><td class="px-4 py-2"></td><td class="px-4 py-2">Especias Variadas</td><td class="px-4 py-2">N/A</td><td class="px-4 py-2">Presupuesto</td><td class="px-4 py-2 text-right">$10.00</td></tr>
+                        </tbody>
+                        <tfoot>
+                            <tr class="font-bold text-gray-900 text-lg">
+                                <th scope="row" colspan="4" class="px-4 py-3 text-base text-right">Costo Total Mensual Estimado</th>
+                                <td class="px-4 py-3 text-right">$395.41</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </section>
+            
+            <section id="estrategias" class="mb-16">
+                 <h2 class="text-3xl font-bold text-center text-[#00A6A6] mb-8">Estrategias para un Costo Razonable</h2>
+                 <p class="text-center text-gray-600 max-w-3xl mx-auto mb-10">
+                    Existen formas de optimizar el presupuesto sin sacrificar los principios de la dieta. La clave está en la compra inteligente y la preparación casera.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-xl text-center">
+                        <div class="text-4xl mb-3 text-[#F26419]">🥩</div>
+                        <h4 class="font-bold text-lg mb-2">Priorizar Vísceras</h4>
+                        <p class="text-sm text-gray-600">Optar por hígado, corazón y huesos para caldo. Son económicos y densos en nutrientes.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-xl text-center">
+                        <div class="text-4xl mb-3 text-[#F29E4C]">🛒</div>
+                        <h4 class="font-bold text-lg mb-2">Comprar Local</h4>
+                        <p class="text-sm text-gray-600">Visitar mercados populares ofrece precios más competitivos que las grandes cadenas.</p>
+                    </div>
+                     <div class="bg-white p-6 rounded-lg shadow-xl text-center">
+                        <div class="text-4xl mb-3 text-[#77C2A1]">🍳</div>
+                        <h4 class="font-bold text-lg mb-2">Preparación Casera</h4>
+                        <p class="text-sm text-gray-600">Cocinar desde cero maximiza el valor nutricional y evita el costo de productos procesados.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-xl text-center">
+                        <div class="text-4xl mb-3 text-[#00A6A6]">🌿</div>
+                        <h4 class="font-bold text-lg mb-2">Flexibilidad Vegetal</h4>
+                        <p class="text-sm text-gray-600">Elegir vegetales de temporada, que suelen ser más económicos y frescos.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+    </div>
+
+    <script>
+        function wrapText(str, maxWidth) {
+            if (str.length <= maxWidth) {
+                return str;
+            }
+            const words = str.split(' ');
+            let lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + words[i].length + 1 < maxWidth) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        const tooltipTitleCallback = function(tooltipItems) {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+        
+        const chartOptionsTemplate = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            family: 'Inter',
+                            size: 12,
+                        },
+                        color: '#4A5568'
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    backgroundColor: '#000',
+                    titleFont: {
+                        family: 'Inter',
+                        size: 14,
+                        weight: 'bold'
+                    },
+                    bodyFont: {
+                        family: 'Inter',
+                        size: 12
+                    }
+                }
+            }
+        };
+
+        const budgetData = {
+            carnes: 252.11,
+            lacteos: 58.40,
+            vegetales: 30.00,
+            otros: 54.90
+        };
+        const totalBudget = Object.values(budgetData).reduce((a, b) => a + b, 0);
+
+        const labels = ['Carnes', 'Lácteos y Grasas', 'Vegetales y Frutas', 'Otros'];
+        const dataValues = [
+            (budgetData.carnes / totalBudget * 100).toFixed(2),
+            (budgetData.lacteos / totalBudget * 100).toFixed(2),
+            (budgetData.vegetales / totalBudget * 100).toFixed(2),
+            (budgetData.otros / totalBudget * 100).toFixed(2)
+        ];
+        
+        const ctxDistribucion = document.getElementById('distribucionGastoChart').getContext('2d');
+        new Chart(ctxDistribucion, {
+            type: 'doughnut',
+            data: {
+                labels: labels.map(l => wrapText(l, 16)),
+                datasets: [{
+                    label: 'Distribución del Gasto (%)',
+                    data: dataValues,
+                    backgroundColor: ['#F26419', '#F29E4C', '#77C2A1', '#00A6A6'],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 3
+                }]
+            },
+            options: {
+                ...chartOptionsTemplate,
+                cutout: '60%',
+            }
+        });
+        
+        const ctxCostoAbsoluto = document.getElementById('costoAbsolutoChart').getContext('2d');
+        new Chart(ctxCostoAbsoluto, {
+            type: 'bar',
+            data: {
+                labels: labels.map(l => wrapText(l, 16)),
+                datasets: [{
+                    label: 'Costo Mensual (USD)',
+                    data: [budgetData.carnes, budgetData.lacteos, budgetData.vegetales, budgetData.otros],
+                    backgroundColor: ['#F26419', '#F29E4C', '#77C2A1', '#00A6A6'],
+                    borderRadius: 5,
+                }]
+            },
+            options: {
+                ...chartOptionsTemplate,
+                 scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value;
+                            },
+                            color: '#4A5568'
+                        },
+                        grid: {
+                            color: '#E2E8F0'
+                        }
+                    },
+                    x: {
+                        ticks: {
+                            color: '#4A5568'
+                        },
+                        grid: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
